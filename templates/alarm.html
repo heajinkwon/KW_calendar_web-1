@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KW CALENDAR WEB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'scripts/alarm.js' %}" />
+</head>
+<body>
+<h1>실시간 강의 알림 설정</h1>
+
+
+<ul id="task-list">
+
+</ul>
+<br><br>
+
+<form id="task-form" action="alarm.html">
+    <label for="title">수강 과목: </label><input type="text" id="title" required>
+    <label for="deadline-months">월: </label>
+    <select name="deadline-months" id="deadline-months">
+        <option value="1월">1</option>
+        <option value="2월">2</option>
+        <option value="3월">3</option>
+        <option value="4월">4</option>
+        <option value="5월">5</option>
+        <option value="6월">6</option>
+        <option value="7월">7</option>
+        <option value="8월">8</option>
+        <option value="9월">9</option>
+        <option value="10월">10</option>
+        <option value="11월">11</option>
+        <option value="12월">12</option>
+    </select>
+
+    <label for="deadline-days">일: </label>
+    <select name="deadline-days" id="deadline-days">
+        <option value="01">1</option>
+        <option value="02">2</option>
+        <option value="03">3</option>
+        <option value="04">4</option>
+        <option value="05">5</option>
+        <option value="06">6</option>
+        <option value="07">7</option>
+        <option value="08">8</option>
+        <option value="09">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+    </select>
+    <br><br>
+
+    <label for="deadline-hours">시: </label><input type="number" id="deadline-hours" required>
+    <label for="deadline-minutes">분: </label><input type="number" id="deadline-minutes" required>
+    <br><br>
+
+    <input type="submit" id="submit" value="알람 설정">
+</form>
+
+<div id="toolbar">
+<ul id="notifications">
+
+</ul>
+</div>
+
+<br><br>
+
+<div class="container">
+    <button class="btn btn-primary float-right" type="button" style="float:right" onclick="location.href='/kw/'">뒤로가기</button><br>
+</div>
+</body>
+<script src="{% static 'scripts/alarm.js' %}"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.dropotron.min.js' %}"></script>
+<script src="{% static 'js/breakpoints.min.js' %}"></script>
+<script src="{% static 'js/browser.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/util.js' %}"></script>
+</html>

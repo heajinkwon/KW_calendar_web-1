@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<!-- -->
+<!--
+	Strongly Typed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    {% load static %}
+    <title>KW CALENDAR WEB</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <meta name="theme-color" content="#7952b3">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+</head>
+<body class="homepage is-preload">
+<div id="page-wrapper">
+    <!-- Header -->
+    <section id="header">
+        <div class="container">
+            <!-- Logo -->
+            <h1 id="logo"><a href="index.html">KW CALENDAR WEB</a></h1>
+            <p>교내 온라인강의 사이트를 개선하고자 만든 프로젝트입니다.</p>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a class="icon solid fa-home" href="/kw"><span>Introduction</span></a></li>
+                    <li><a class="icon solid fa-cog" href="/kw/zoom_link"><span>Zoom Link</span></a></li>
+                    <li><a class="icon solid fa-retweet" href="/kw/major_site"><span>My major Site</span></a></li>
+                    <li><a class="icon solid fa-retweet" href="/kw/alarm"><span>Alarm</span></a></li>
+                    <li><a class="icon solid fa-sitemap" href="/kw/calendar"><span>Calendar</span></a></li>
+                    <li><a class="icon solid fa-sitemap" href="/kw/login"><span>Login</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features">
+        <div class="container">
+            <header>
+                <h2>Gentlemen, behold! This is <strong>Strongly Typed</strong>!</h2>
+            </header>
+
+
+            <div class="row aln-center">
+                <div class="col-4 col-6-medium col-12-small">
+
+                    <!-- Feature -->
+                    <section>
+                        <a href="#" class="image featured"><img src="{% static 'images/pic01.jpg' %}" alt="" /></a>
+                        <header>
+                            <h3>Okay, so what is this?</h3>
+                        </header>
+                        <p>This is <strong>Strongly Typed</strong>, a free, fully responsive site template
+                            by <a href="http://html5up.net">HTML5 UP</a>. Free for personal and commercial use under the
+                            <a href="http://html5up.net/license">CCA 3.0 license</a>.</p>
+                    </section>
+
+                </div>
+                <div class="col-4 col-6-medium col-12-small">
+
+                    <!-- Feature -->
+                    <section>
+                        <a href="#" class="image featured"><img src="{% static 'images/pic02.jpg' %}" alt="" /></a>
+                        <header>
+                            <h3>Nice! What is HTML5 UP?</h3>
+                        </header>
+                        <p><a href="http://html5up.net">HTML5 UP</a> is a side project of <a href="http://twitter.com/ajlkn">AJ’s</a> (= me).
+                            I started it as a way to both test my responsive tools and sharpen up my coding
+                            and design skills a bit.</p>
+                    </section>
+
+                </div>
+                <div class="col-4 col-6-medium col-12-small">
+
+                    <!-- Feature -->
+                    <section>
+                        <a href="/kw/evaluation" class="image featured"><img src="{% static 'images/pic03.jpg' %}" alt="" /></a>
+                        <header>
+                            <h3>What's this built with?</h3>
+                        </header>
+                        <p><strong>Responsive Tools</strong> is a simple set of tools for building responsive
+                            sites and apps. All of my templates at <a href="http://html5up.net">HTML5 UP</a> are built using these tools.</p>
+                    </section>
+
+                </div>
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><a href="#" class="button icon solid fa-file">Tell Me More</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Scripts -->
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.dropotron.min.js' %}"></script>
+<script src="{% static 'js/breakpoints.min.js' %}"></script>
+<script src="{% static 'js/browser.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/util.js' %}"></script>
+</div>
+</body>
+</html>

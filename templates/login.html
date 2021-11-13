@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<!--
+	Strongly Typed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    {% load static %}
+    <title>Strongly Typed by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+</head>
+<body class="homepage is-preload">
+<!-- Header -->
+<section id="header">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <form action="/kw/login/" method="POST">
+                    {% csrf_token  %}
+                    <h3 class="heading-desc">Login Page</h3>
+                    <p>학번 <label>
+                        <input name = "id" type = "text" placeholder="Id">
+                    </label></p>
+                    <br>
+                    <p>비밀번호 <label>
+                        <input name = "password" type = "password" placeholder="Password">
+                    </label></p>
+                    <br>
+                    <input type = "submit" value="login">
+                </form>
+            </div>
+            <div class="col-2">
+                <p>자신의 학번과 이름을 기입해주세요</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Scripts -->
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.dropotron.min.js' %}"></script>
+<script src="{% static 'js/breakpoints.min.js' %}"></script>
+<script src="{% static 'js/browser.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/util.js' %}"></script>
+</body>
+</html>

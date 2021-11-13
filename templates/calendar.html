@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<!--
+	Strongly Typed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+<head>
+    {% load static %}
+    <title>KW CALENDAR WEB</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <!--fullcalendar라는 오픈 소스를 이용해서 캘린더를 제작하고 했습니다. -->
+    <link href="{% static 'fullcalendar/main.css' %}" rel='stylesheet'/>
+    <script src="{% static 'fullcalendar/main.js' %}"></script>
+    <script src="{% static 'fullcalendar/locales/ko.js' %}"></script>
+    <script>
+        let names = [];
+        let startDate = [];
+        let endDate = [];
+        let colors = [];
+        let temp;
+        let count = 0;
+
+        {% for i in homeworks %}
+            temp = "{{ i }}".split("///");
+            names.push(temp[0]);
+            startDate.push(temp[1]);
+            endDate.push(temp[2]);
+            colors.push(temp[3]);
+        {% endfor %}
+
+        let subjColorArr = [];
+
+        {% for i in subjAndColors %}
+            subjColorArr[count++] = "{{ i }}".split(":")[1]
+        {% endfor %}
+        count = 0;
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                locales: "ko",
+                initialDate: new Date().toISOString().substring(0, 10),
+                navLinks: true, // can click day/week names to navigate views
+                selectable: true,
+                selectMirror: true,
+                select: function (arg) {
+                    var title = prompt('Event Title:');
+                    if (title) {
+                        calendar.addEvent({
+                            title: title,
+                            start: arg.start,
+                            end: arg.end,
+                            allDay: arg.allDay
+                        })
+                    }
+                    calendar.unselect()
+                },
+                eventClick: function (arg) {
+                    if (confirm('Are you sure you want to delete this event?')) {
+                        arg.event.remove()
+                    }
+                },
+                editable: true,
+                dayMaxEvents: true, // allow "more" link when too many events
+                eventColor: colors[0],
+                textColor: 'rgb(255,255,255)',
+                events: [
+                    <!-- 여기부분을 반복문으로 구현하여 일정을 표시해야합니다.-->
+                    {% for i in homeworks %}
+                        {
+                            title: names[count],
+                            start: startDate[count],
+                            end: endDate[count],
+                            textColor: 'rgb(0,0,0)',
+                            color: colors[count++]
+                        },
+
+                    {% endfor %}
+                ]
+            });
+            calendar.render();
+        });
+    </script>
+    <style>
+
+        body {
+            margin: 40px 10px;
+            padding: 0;
+            font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        #calendar {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+    </style>
+    <title>KW Calendar</title>
+</head>
+<body class="homepage is-preload">
+
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <section id="header">
+        <div class="container">
+            <nav id="nav">
+                <ul>
+                    <li><a class="icon solid fa-home" href="/kw"><span>Introduction</span></a></li>
+                    <li><a class="icon solid fa-cog" href="/kw/zoom_link"><span>Zoom Link</span></a></li>
+                    <li><a class="icon solid fa-retweet" href="/kw/major_site"><span>My major Site</span></a></li>
+                    <li><a class="icon solid fa-retweet" href="/kw/alarm"><span>Alarm</span></a></li>
+                    <li><a class="icon solid fa-sitemap" href="/kw/calendar"><span>Calendar</span></a></li>
+                    <li><a class="icon solid fa-sitemap" href="/kw/login"><span>Login</span></a></li>
+                </ul>
+            </nav>
+            <!-- Logo -->
+            <h1 id="logo"><a href="index.html">KW CALENDAR WEB</a></h1>
+            <p>교내 온라인강의 사이트를 개선하고자 만든 프로젝트입니다.</p>
+        </div>
+
+
+    </section>
+
+    <!-- Main -->
+    <!-- Optional JavaScript; choose one of the two! -->
+    <section id="features">
+
+        <div class="container">
+            <br><br>
+            <!-- 과제를 달력에 출력하는 부분 end -->
+            <div id='calendar'></div><br>
+            <div class="container-fluid">
+                <ul>
+                    <!-- 색상 출력 -->
+                    {% for key, value in subjAndColors.items %}
+                        <li>과목 : {{ key }}, <p style="background: {{ value }}">색:{{ value }}</p></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <br>
+            <div class="container">
+                <button class="btn btn-primary float-right" type="button" onclick="location.href='/kw/'">뒤로가기</button>
+                <br>
+            </div>
+        </div>
+    </section>
+            <!-- Option 1: Bootstrap Bundle with Popper -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                    crossorigin="anonymous"></script>
+</div>
+<!-- Scripts -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.dropotron.min.js' %}"></script>
+<script src="{% static 'js/breakpoints.min.js' %}"></script>
+<script src="{% static 'js/browser.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/util.js' %}"></script>
+</body>
+</html>

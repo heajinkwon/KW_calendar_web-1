@@ -1,0 +1,15 @@
+.git
+.idea
+db.sqlite3
+secret.txt
+chromedriver.exe
+__pycache__/
+config/__pycache__/
+kw_calendar/__pycache__/
+kw_calendar/migrations/__pycache__/
+secret.json
+venv
+major.txt
+zoomlink.txt
+notice_content.txt
+evaluation_rate.txt
