@@ -78,3 +78,12 @@
 	https://github.com/fullcalendar/fullcalendar.git
 ```
 </p>
+
+<p>
+2. selenium(language: python, Apache License)
+
+```
+	https://www.selenium.dev/
+	https://github.com/SeleniumHQ/selenium
+```
+</p>
