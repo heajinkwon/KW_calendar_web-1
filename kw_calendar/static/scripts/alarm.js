@@ -1,6 +1,3 @@
-//indexedDB 관련 상태를 알려주는 변수
-const stateNote = document.getElementById('notifications')
-
 let db;
 
 let newItem = [
@@ -26,7 +23,8 @@ window.onload = function () {
         alert("현재 브라우저는 알림 기능을 지원하지 않습니다");
     }
     else if (Notification.permission === "granted") {
-        var notification = new Notification("KW Calendar Web", {body:'작동 준비 완료'});
+        let img = '/static/images/Icon.png';
+        var notification = new Notification("KW Calendar Web", {body:'작동 준비 완료', icon:img});
 
         setTimeout(function (){
             notification.close();
@@ -47,7 +45,6 @@ window.onload = function () {
         });
     }
 
-    stateNote.innerHTML += '<li>App initialised.</li>';
     window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
     window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
     window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
@@ -57,13 +54,11 @@ window.onload = function () {
 
     //에러 처리
     DBOpenRequest.onerror = function (event) {
-        stateNote.innerHTML += '<li>Error loading database.</li>';
+        alert("Error loading database");
     };
 
     //성공 처리
     DBOpenRequest.onsuccess = function (event) {
-        stateNote.innerHTML += '<li>Database initialised.</li>';
-
         db = DBOpenRequest.result;
 
         displayData();
@@ -75,7 +70,7 @@ window.onload = function () {
 
         //에러 처리
         db.onerror = function (event) {
-            stateNote.innerHTML += '<li>Error loading database.</li>';
+            alert("Error loading database");
         };
 
         let objectStore = db.createObjectStore("KW-Calendar-Web", {keyPath: "taskTitle"});
@@ -84,10 +79,7 @@ window.onload = function () {
         objectStore.createIndex("minutes", "minutes", {unique: false});
         objectStore.createIndex("day", "day", {unique: false});
         objectStore.createIndex("month", "month", {unique: false});
-
         objectStore.createIndex("notified", "notified", { unique: false });
-
-        stateNote.innerHTML += '<li>Object store created.</li>';
     }
 
     function displayData() {
@@ -121,8 +113,6 @@ window.onload = function () {
 
                 cursor.continue();
 
-            } else {
-                stateNote.innerHTML += '<li>Entries all displayed.</li>';
             }
         }
     }
@@ -133,7 +123,7 @@ window.onload = function () {
         e.preventDefault();
 
         if(title.value == '' || hours.value == null || minutes.value == null || day.value == '' || month.value == '') {
-            stateNote.innerHTML += '<li>Data not submitted — form incomplete.</li>';
+            alert("Data not submitted - form incomplete");
 
         } else {
 
@@ -144,13 +134,11 @@ window.onload = function () {
             let transaction = db.transaction(["KW-Calendar-Web"], "readwrite");
 
             transaction.oncomplete = function() {
-                stateNote.innerHTML += '<li>Transaction completed: database modification finished.</li>';
-
                 displayData();
             };
 
             transaction.onerror = function() {
-                stateNote.innerHTML += '<li>Transaction not opened due to error: ' + transaction.error + '</li>';
+                alert("Transaction not opened due to error : " + transaction.error);
             };
 
             let objectStore = transaction.objectStore("KW-Calendar-Web");
@@ -162,9 +150,6 @@ window.onload = function () {
 
             let objectStoreRequest = objectStore.add(newItem[0]);
             objectStoreRequest.onsuccess = function(event) {
-
-                stateNote.innerHTML += '<li>Request successful.</li>';
-
                 title.value = '';
                 hours.value = null;
                 minutes.value = null;
@@ -182,7 +167,6 @@ window.onload = function () {
 
         transaction.oncomplete = function() {
             event.target.parentNode.parentNode.removeChild(event.target.parentNode);
-            stateNote.innerHTML += '<li>Task \"' + dataTask + '\" deleted.</li>';
         };
     }
 
@@ -257,8 +241,9 @@ window.onload = function () {
 
     function createNotification(title) {
 
+        let img = '/static/images/Icon.png';
         let text = '"' + title + '" 강의가 곧 시작됩니다.';
-        let notification = new Notification('KW-Calendar-Web', { body: text });
+        let notification = new Notification('KW-Calendar-Web', { body: text, icon:img});
 
         let objectStore = db.transaction(['KW-Calendar-Web'], "readwrite").objectStore('KW-Calendar-Web');
 
