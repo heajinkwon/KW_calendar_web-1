@@ -43,8 +43,8 @@
 6. django SECRET_KEY 생성 후 secret.json 파일로 만들어 프로젝트 폴더에 넣어주세요.(아래 링크에서 django SECRET_KEY에 관한 정보를 얻으실 수 있습니다.)
 
 ```
-SECRET_KEY 생성 후 분리 : https://jisun-rea.tistory.com/entry/Django-Secret-key-%EC%83%88%EB%A1%9C-%EC%83%9D%EC%84%B1-%ED%9B%84-%EB%B6%84%EB%A6%AC%ED%95%98%EA%B8%B0
-django Docs : https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-SECRET_KEY
+	SECRET_KEY 생성 후 분리 : https://jisun-rea.tistory.com/entry/Django-Secret-key-%EC%83%88%EB%A1%9C-%EC%83%9D%EC%84%B1-%ED%9B%84-%EB%B6%84%EB%A6%AC%ED%95%98%EA%B8%B0
+	django Docs : https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-SECRET_KEY
 ```
 
 <br>
