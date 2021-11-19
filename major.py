@@ -1,5 +1,5 @@
 from selenium import webdriver
-import time
+import time, re
 from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
 from selenium.webdriver.support.select import Select
 
