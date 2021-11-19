@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
     <!--fullcalendar라는 오픈 소스를 이용해서 캘린더를 제작하고 했습니다. -->
     <link href="{% static 'fullcalendar/main.css' %}" rel='stylesheet'/>
-    <link rel="icon" type="image/png" href="/static/images/Icon.png">
     <script src="{% static 'fullcalendar/main.js' %}"></script>
     <script src="{% static 'fullcalendar/locales/ko.js' %}"></script>
     <script>
@@ -91,6 +90,7 @@
             });
             calendar.render();
         });
+
     </script>
     <style>
 
@@ -105,6 +105,7 @@
             max-width: 1100px;
             margin: 0 auto;
         }
+
     </style>
     <title>KW Calendar</title>
 </head>
@@ -126,8 +127,11 @@
                 </ul>
             </nav>
             <!-- Logo -->
-            <h1 id="logo"><a href="index.html">KW CALENDAR WEB</a></h1>
-            <p>교내 온라인강의 사이트를 개선하고자 만든 프로젝트입니다.</p>
+            <h1 id="logo"><a href="/kw">KW CALENDAR WEB</a></h1><br>
+            <MARQUEE behavior="scroll" , scrollamount="15">교내 온라인강의 사이트를 개선하고자 만든 프로젝트입니다. 광운대학교 KLAS에서 사용하는 주요 기능을 한데
+                모아 더욱 편리하게 이용할 수 있는 사이트입니다. 마음껏 사용해보세요.
+            </MARQUEE>
+
         </div>
 
 
@@ -140,12 +144,13 @@
         <div class="container">
             <br><br>
             <!-- 과제를 달력에 출력하는 부분 end -->
-            <div id='calendar'></div><br>
+            <div id='calendar'></div>
+            <br>
             <div class="container-fluid">
                 <ul>
                     <!-- 색상 출력 -->
                     {% for key, value in subjAndColors.items %}
-                        <li>과목 : {{ key }}, <p style="background: {{ value }}">색:{{ value }}</p></li>
+                    <li>과목 : {{ key }}, <p style="background: {{ value }}">색:{{ value }}</p></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -156,10 +161,10 @@
             </div>
         </div>
     </section>
-            <!-- Option 1: Bootstrap Bundle with Popper -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-                    crossorigin="anonymous"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
 </div>
 <!-- Scripts -->
 <script src="{% static 'js/jquery.min.js' %}"></script>

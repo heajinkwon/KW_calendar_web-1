@@ -123,8 +123,6 @@ def evaluation_find() :
                 row = td.text
                 row = row.split("\n" or " ")
                 row = " ".join(row)
-                cut_index = row.find("팀티칭/")
-                row = row[:cut_index]
                 if ("이메일" in row):
                     email = row
 

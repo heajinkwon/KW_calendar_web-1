@@ -5,65 +5,72 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-        {% load static %}
-		<title>KW CALENDAR WEB</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="icon" type="image/png" href="/static/images/Icon.png">
-		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
-	</head>
-	<body class="homepage is-preload">
-		<div id="page-wrapper">
+<head>
+    {% load static %}
+    <title>KW CALENDAR WEB</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+</head>
 
-			<!-- Header -->
-				<section id="header">
-					<div class="container">
+<body class="homepage is-preload">
+<div id="page-wrapper">
+    <!-- Header -->
+    <section id="header">
+        <div class="container">
 
-						<!-- Logo -->
-							<h1 id="logo"><a href="index.html">KW CALENDAR WEB</a></h1>
-                            <p>교내 온라인강의 사이트를 개선하고자 만든 프로젝트입니다.</p>
+            <!-- Logo -->
+            <h1 id="logo"><a href="/kw">KW CALENDAR WEB</a></h1><br>
+            <MARQUEE behavior="scroll" , scrollamount="15">교내 온라인강의 사이트를 개선하고자 만든 프로젝트입니다. 광운대학교 KLAS에서 사용하는 주요 기능을 한데
+                모아 더욱 편리하게 이용할 수 있는 사이트입니다. 마음껏 사용해보세요.
+            </MARQUEE>
 
-						<!-- Nav -->
-							<nav id="nav">
-								<ul>
-									<li><a class="icon solid fa-home" href="/kw"><span>Introduction</span></a></li>
-									<li><a class="icon solid fa-cog" href="/kw/zoom_link"><span>Zoom Link</span></a></li>
-									<li><a class="icon solid fa-retweet" href="/kw/major_site"><span>My major Site</span></a></li>
-                                    <li><a class="icon solid fa-retweet" href="/kw/alarm"><span>Alarm</span></a></li>
-									<li><a class="icon solid fa-sitemap" href="/kw/calendar"><span>Calendar</span></a></li>
-                                    <li><a class="icon solid fa-sitemap" href="/kw/login"><span>Login</span></a></li>
-								</ul>
-							</nav>
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a class="icon solid fa-home" href="/kw"><span>Introduction</span></a></li>
+                    <li><a class="icon solid fa-cog" href="/kw/zoom_link"><span>Zoom Link</span></a></li>
+                    <li><a class="icon solid fa-retweet" href="/kw/major_site"><span>My major Site</span></a></li>
+                    <li><a class="icon solid fa-retweet" href="/kw/alarm"><span>Alarm</span></a></li>
+                    <li><a class="icon solid fa-sitemap" href="/kw/calendar"><span>Calendar</span></a></li>
+                    <li><a class="icon solid fa-sitemap" href="/kw/login"><span>Login</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
 
-					</div>
-				</section>
+    <!-- Main -->
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <!-- Content -->
+                <div id="content" class="col-8 col-12-medium">
 
-			<!-- Main -->
-				<section id="main">
-					<div class="container">
-						<div class="row">
-
-							<!-- Content -->
-								<div id="content" class="col-8 col-12-medium">
-
-									<!-- Post -->
-										<article class="box post">
-											<header>
-												<h2>Zoom Link Url</h2>
-											</header>
-											<h3>{{ zoom_link_url }} </h3>
-                                        </article>
-
-								</div>
-		</div>
-		<!-- Scripts -->
-
-			<script src="{% static 'js/jquery.min.js' %}"></script>
-			<script src="{% static 'js/jquery.dropotron.min.js' %}"></script>
+                    <!-- Post -->
+                    <article class="box post">
+                        <header>
+                            <h2> &#127911;Zoom Link Url</h2>
+                        </header>
+                        <ul>
+                            {% for key, val in zoomlinks.items %}
+                            <p style text-align : left>&#10004; <Strong><b>{{ key }} </b></Strong>
+                            <h3>&#128187; : {{ val.0|urlize }} </h3>
+                            <b>&#8520;&#8518; : <u>{{ val.1|slugify }}</u></b></p>
+                            <hr width="200%" color="gray">
+                            {% endfor %}
+                        </ul>
+                    </article>
+                </div>
+            </div>
+            <!-- Scripts -->
+            <script src="{% static 'js/jquery.min.js' %}"></script>
+            <script src="{% static 'js/jquery.dropotron.min.js' %}"></script>
             <script src="{% static 'js/breakpoints.min.js' %}"></script>
-			<script src="{% static 'js/browser.min.js' %}"></script>
-			<script src="{% static 'js/main.js' %}"></script>
-			<script src="{% static 'js/util.js' %}"></script>
-	</body>
+            <script src="{% static 'js/browser.min.js' %}"></script>
+            <script src="{% static 'js/main.js' %}"></script>
+            <script src="{% static 'js/util.js' %}"></script>
+        </div>
+    </section>
+</div>
+</body>
 </html>
