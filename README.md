@@ -10,7 +10,7 @@
 	git clone https://github.com/Tianea2160/KW_calendar_web.git
 ```
 <br>
-2. 아래의 명령어를 cmd 또는 anaconda(임의의 가상환경) cmd 창에서 실행해주세요(기본적으로 파이썬 3.9 버전이 설치되어 있다는 가정하에 진행됩니다.)
+2. 아래의 명령어를 cmd 또는 anaconda(임의의 가상환경) cmd 창에서 실행해주세요.(기본적으로 파이썬 3.9 버전이 설치되어 있다는 가정하에 진행됩니다.)
 
 ```
 	pip install -r requirements.txt
@@ -22,27 +22,37 @@
 <p>
 
 <br>
-3. 설정에서 크롬 버전을 확인하세요<br>
+3. 설정에서 크롬 버전을 확인하세요.<br>
 
 ```
 	ex)버전 94.0.4606.61
 ```
 
 <br>
-4. 아래의 사이트에 들어가셔서 2.에서 확인한 버전에 맞는 크롬 드라이버를 다운받아주세요
+4. 아래의 사이트에 들어가셔서 2.에서 확인한 버전에 맞는 크롬 드라이버를 다운받아주세요.
 
 ```
 	https://chromedriver.chromium.org/downloads
 ```
 
 <br>
-5. 4.에서 다운 받은 .exe 파일을 clone한 프로젝트 폴더에 넣어주세요.경로는 manage.py파일이 있는 곳입니다.<br>
+5. 4.에서 다운 받은 .exe 파일을 clone한 프로젝트 폴더에 넣어주세요. 경로는 manage.py파일이 있는 곳입니다.<br>
 <br>
 
+<br>
+6. django SECRET_KEY 생성 후 secret.json 파일로 만들어 프로젝트 폴더에 넣어주세요.(아래 링크에서 django SECRET_KEY에 관한 정보를 얻으실 수 있습니다.)
+
+```
+SECRET_KEY 생성 후 분리 : https://jisun-rea.tistory.com/entry/Django-Secret-key-%EC%83%88%EB%A1%9C-%EC%83%9D%EC%84%B1-%ED%9B%84-%EB%B6%84%EB%A6%AC%ED%95%98%EA%B8%B0
+django Docs : https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-SECRET_KEY
+```
+
+<br>
 파일 다운로드에 관한 모든 준비가 끝났습니다.
+<br><br>
 
 <br>
-6. 다음 두 명령어를 프로젝트 경로 순서대로 입력하면 서버가 실행됩니다.<br>
+7. 다음 두 명령어를 프로젝트 경로 순서대로 입력하면 서버가 실행됩니다.<br>
 
 ```
 	python manage.py migrate
@@ -78,7 +88,7 @@
 	https://github.com/fullcalendar/fullcalendar.git
 ```
 </p>
-
+<br>
 <p>
 2. selenium(language: python, Apache License)
 
@@ -87,5 +97,16 @@
 ```
 ```
 	https://github.com/SeleniumHQ/selenium
+```
+</p>
+<br>
+<p>
+3. notifications API
+
+```
+        https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API
+```
+```
+        https://github.com/mdn/to-do-notifications/tree/gh-pages
 ```
 </p>
