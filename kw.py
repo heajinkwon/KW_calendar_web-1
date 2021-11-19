@@ -3,7 +3,10 @@ import logging
 from selenium import webdriver
 import time, re
 from selenium.webdriver.support.select import Select
+import threading
 
+# 세마포어 기법 적용
+sem = threading.Semaphore(1)
 
 def login(browser):
     with open("secret.txt", "r") as f:
@@ -24,10 +27,10 @@ def login(browser):
 
 
 def kw_scraping():
+    sem.acquire()
     browser = webdriver.Chrome()
     delay = 0.5
-    colors = ['#FF9900', '#FFFF99', '#CCFFCC', '#CCFFFF', '#99CCFF', '#CC99FF', '#FF99CC', '#FF99CC', '#666699',
-              '#3366FF']
+    colors = ['#FF9900', '#FFFF99', '#CCFFCC', '#CCFFFF', '#99CCFF', '#CC99FF', '#FF99CC', '#FF99CC', '#666699', '#3366FF']
 
     with open("secret.txt", "r") as f:
         line = f.readline()
@@ -97,6 +100,7 @@ def kw_scraping():
                 break
         subjectIndex += 1
     browser.quit()
+    sem.release()
     return kw_homework, SubjectAndColor
 
 
