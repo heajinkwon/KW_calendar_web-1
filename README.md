@@ -74,8 +74,17 @@
 
 해당 저장소 폴더의 kw_calendar아래에 veiw.py, template에 각각 controller와 웹에 출력되는 html 파일들이 모여있습니다.
 각각의 파일또는 폴더가 있는데 template에는 사용자에게 보이는 웹의 모습인 html을 만들면 되고, view.py에서는 html로 넘길 정보를 코드로 작성하시면 됩니다.
+프로젝트에서 기본적으로 사용하고 있는 테마를 사용하시려면 
+```
+{% load static %}
+{% block content %}
+	<!--html의 body 부분으로 구현하고자 하는 기능을 여기서 작성하시면됩니다.-->
+{% endblock %}
+```
+
+프로젝트 시연 동영상
+---	
 	
-- 프로젝트 시연 동영상
 ```
 	https://youtu.be/P06VqOFez3E
 ```
